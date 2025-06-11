@@ -60,6 +60,16 @@ function App() {
   
         
       </div>
+
+      <div className="feature-bar">
+         <button className="feature-button">🚩 Priority</button>
+         
+         <button className="feature-button">⭐ Starred</button>
+         
+         <button className="feature-button">⏰ Reminders</button>
+         <button className="feature-button">🗑️ Trash</button>
+      </div>
+
   
       
       <div className="task-columns">
