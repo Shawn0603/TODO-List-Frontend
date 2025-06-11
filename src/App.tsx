@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import type { Task } from './types/task';
 import AddTask from './components/AddTask';
@@ -7,8 +7,15 @@ import TaskItem from './components/TaskItem';
 
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const saved = localStorage.getItem('tasks');
+    return saved ? JSON.parse(saved) : [];
+  });
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+  
   const addTask = (text: string) => {
     const newItem: Task = {
       id: Date.now(),
