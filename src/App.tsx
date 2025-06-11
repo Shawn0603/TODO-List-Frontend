@@ -1,20 +1,21 @@
 import { useState } from 'react';
 import './App.css';
 import type { Task } from './types/task';
+import AddTask from './components/AddTask';
+import TaskItem from './components/TaskItem';
+
+
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [newTask, setNewTask] = useState('');
 
-  const addTask = () => {
-    if (!newTask.trim()) return;
+  const addTask = (text: string) => {
     const newItem: Task = {
       id: Date.now(),
-      text: newTask,
+      text,
       completed: false,
     };
     setTasks([newItem, ...tasks]);
-    setNewTask('');
   };
 
   const toggleTask = (id: number) => {
@@ -30,27 +31,22 @@ function App() {
   return (
     <div className="app-container">
       <h1>To-Do List</h1>
-
-      <div className="add-task">
-        <input
-          type="text"
-          placeholder="Enter new task"
-          value={newTask}
-          onChange={e => setNewTask(e.target.value)}
-        />
-        <button onClick={addTask}>Add</button>
-      </div>
-
+  
+      <AddTask onAddTask={addTask} />
+  
       <ul className="task-list">
         {tasks.map(task => (
-          <li key={task.id} className={task.completed ? 'completed' : ''}>
-            <span onClick={() => toggleTask(task.id)}>{task.text}</span>
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
-          </li>
+          <TaskItem
+            key={task.id}
+            task={task}
+            onToggle={toggleTask}
+            onDelete={deleteTask}
+          />
         ))}
       </ul>
     </div>
   );
+  
 }
 
 export default App;
