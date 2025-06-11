@@ -9,7 +9,7 @@ function AddTask({ onAddTask }: AddTaskProps) {
 
   const handleAdd = () => {
     if (!input.trim()) return;
-    onAddTask(input); // “写入管道”
+    onAddTask(input); 
     setInput('');
   };
 

@@ -7,12 +7,19 @@ interface TaskItemProps {
 }
 
 function TaskItem({ task, onToggle, onDelete }: TaskItemProps) {
-  return (
-    <li className={task.completed ? 'completed' : ''}>
-      <span onClick={() => onToggle(task.id)}>{task.text}</span>
-      <button onClick={() => onDelete(task.id)}>Delete</button>
-    </li>
-  );
-}
+    return (
+      <li className="task-item">
+        <div
+          className="task-indicator"
+          style={{ backgroundColor: task.completed ? '#34D399' : '#3B82F6' }} // green or blue
+        ></div>
+        <div className="task-content">
+          <span onClick={() => onToggle(task.id)}>{task.text}</span>
+          <button onClick={() => onDelete(task.id)}>Delete</button>
+        </div>
+      </li>
+    );
+  }
+  
 
 export default TaskItem;

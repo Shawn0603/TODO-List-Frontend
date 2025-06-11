@@ -21,6 +21,7 @@ function App() {
       id: Date.now(),
       text,
       completed: false,
+      deleted: false
     };
     setTasks([newItem, ...tasks]);
   };
@@ -37,14 +38,6 @@ function App() {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
-  const [filter, setFilter] = useState<'all' | 'completed' | 'active'>('all');
-
-  const filteredTasks = tasks.filter(task => {
-    if (filter === 'all') return true;
-    if (filter === 'completed') return task.completed;
-    if (filter === 'active') return !task.completed;
-  });
-
   const today = new Date().toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -57,53 +50,51 @@ function App() {
   return (
     <div className="app-container">
   
-  <div className="sticky-header">
-    <div className="header">
-      <h1>To-Do List</h1>
-      <span className="date">{today}</span>
-    </div>
-
-    <AddTask onAddTask={addTask} />
-
-    <div className="filter-panel">
-      <div className="filter-buttons">
-        <button
-          onClick={() => setFilter('all')}
-          className={filter === 'all' ? 'active' : ''}
-        >
-          All
-        </button>
-        <button
-          onClick={() => setFilter('active')}
-          className={filter === 'active' ? 'active' : ''}
-        >
-          Active
-        </button>
-        <button
-          onClick={() => setFilter('completed')}
-          className={filter === 'completed' ? 'active' : ''}
-        >
-          Completed
-        </button>
-      </div>
-    </div>
-  </div>
-
+      <div className="sticky-header">
+        <div className="header">
+          <h1>To-Do List</h1>
+          <span className="date">{today}</span>
+        </div>
   
-  <ul className="task-list">
-    {filteredTasks.map(task => (
-      <TaskItem
-        key={task.id}
-        task={task}
-        onToggle={toggleTask}
-        onDelete={deleteTask}
-      />
-    ))}
-  </ul>
-</div>
-
+        <AddTask onAddTask={addTask} />
+  
+        
+      </div>
+  
+      
+      <div className="task-columns">
+        <div className="task-column">
+          <h2> Active Tasks</h2>
+          {tasks
+            .filter(task => !task.completed && !task.deleted)
+            .map(task => (
+              <TaskItem
+                key={task.id}
+                task={task}
+                onToggle={toggleTask}
+                onDelete={deleteTask}
+              />
+            ))}
+        </div>
+  
+        <div className="task-column">
+          <h2> Completed Tasks</h2>
+          {tasks
+            .filter(task => task.completed && !task.deleted)
+            .map(task => (
+              <TaskItem
+                key={task.id}
+                task={task}
+                onToggle={toggleTask}
+                onDelete={deleteTask}
+              />
+            ))}
+        </div>
+      </div>
+  
+    </div>  
   );
-
+  
 }
 
 export default App;
