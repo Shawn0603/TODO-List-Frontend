@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
-  
+
   const addTask = (text: string) => {
     const newItem: Task = {
       id: Date.now(),
@@ -25,7 +25,7 @@ function App() {
     setTasks([newItem, ...tasks]);
   };
 
-  
+
 
   const toggleTask = (id: number) => {
     setTasks(tasks.map(task =>
@@ -44,51 +44,66 @@ function App() {
     if (filter === 'completed') return task.completed;
     if (filter === 'active') return !task.completed;
   });
-  
+
+  const today = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
+
 
 
   return (
     <div className="app-container">
-      <h1>To-Do List</h1>
   
-      <AddTask onAddTask={addTask} />
+  <div className="sticky-header">
+    <div className="header">
+      <h1>To-Do List</h1>
+      <span className="date">{today}</span>
+    </div>
 
+    <AddTask onAddTask={addTask} />
+
+    <div className="filter-panel">
       <div className="filter-buttons">
-  <button
-    onClick={() => setFilter('all')}
-    className={filter === 'all' ? 'active' : ''}
-  >
-    All
-  </button>
-  <button
-    onClick={() => setFilter('active')}
-    className={filter === 'active' ? 'active' : ''}
-  >
-    Active
-  </button>
-  <button
-    onClick={() => setFilter('completed')}
-    className={filter === 'completed' ? 'active' : ''}
-  >
-    Completed
-  </button>
+        <button
+          onClick={() => setFilter('all')}
+          className={filter === 'all' ? 'active' : ''}
+        >
+          All
+        </button>
+        <button
+          onClick={() => setFilter('active')}
+          className={filter === 'active' ? 'active' : ''}
+        >
+          Active
+        </button>
+        <button
+          onClick={() => setFilter('completed')}
+          className={filter === 'completed' ? 'active' : ''}
+        >
+          Completed
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <ul className="task-list">
+    {filteredTasks.map(task => (
+      <TaskItem
+        key={task.id}
+        task={task}
+        onToggle={toggleTask}
+        onDelete={deleteTask}
+      />
+    ))}
+  </ul>
 </div>
 
-  
-      <ul className="task-list">
-        {filteredTasks.map(task => (
-
-          <TaskItem
-            key={task.id}
-            task={task}
-            onToggle={toggleTask}
-            onDelete={deleteTask}
-          />
-        ))}
-      </ul>
-    </div>
   );
-  
+
 }
 
 export default App;
