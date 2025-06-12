@@ -32,9 +32,12 @@ function TaskItem({ task, onToggle, onDelete, onRestore, isInTrash }: TaskItemPr
 
 
       <div className="task-content">
-          <span onClick={() => navigate(`/task/${task.id}`)}>
-             {task.text}
-             </span>
+      {isInTrash ? (
+  <span style={{ color: '#888', cursor: 'not-allowed' }}>{task.text}</span>
+) : (
+  <span onClick={() => navigate(`/task/${task.id}`)}>{task.text}</span>
+)}
+
 
 
         {isInTrash ? (
