@@ -1,54 +1,79 @@
-# React + TypeScript + Vite
+# To-Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**To-Do List** is a clean, minimal, and user-friendly task management web application built with **React**, **TypeScript**, and **Vite**. It allows users to quickly add, complete, delete, and restore tasks — all with a beautiful and intuitive interface.
 
-Currently, two official plugins are available:
+This project is designed as a foundation for a fully functional mobile and desktop app, with the long-term goal of publishing it to the **App Store**. It demonstrates a solid understanding of component-based architecture, local data persistence, and interactive UI development in modern front-end technologies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Main Interface
+Shows the main task management view with Active and Completed task sections.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+![Main Interface](./screenshots/main-view.png)
+
+### Trash View
+Displays deleted tasks, with options to restore or permanently delete.
+
+![Trash View](./screenshots/trash-view.png)
+
+
+## Features
+
+- Add and manage your personal tasks efficiently.
+- Organize tasks into **Active** and **Completed** columns.
+- Mark tasks as **Important** using a red flag icon (🚩).
+- Mark tasks as **Starred** for quick access (⭐).
+- Set **Reminders** on tasks and receive pop-up alerts at specified times (⏰). *(Planned)*
+- Soft-delete tasks into a **Trash** view (🗑️) instead of removing permanently.
+- Restore or permanently delete tasks from the trash.
+- Clean all trashed tasks with a single click.
+- Seamlessly toggle between `main` and `trash` view.
+- Visually distinct indicators for task status (color-coded).
+- Data persistence using `localStorage` (your tasks won't disappear on refresh).
+- Responsive design with clean minimalist UI.
+
+
+
+##  Getting Started
+
+Follow the instructions below to run the project locally on your machine.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Make sure you have **Node.js (v14 or above)** installed.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+### 3. Start the Development Server
+
+```bash
+npm run dev
+```
+
+Once the server is running, open your browser and go to:
+
+```
+http://localhost:5173
+```
+
+> This project uses **Vite** for fast hot-module reloading and development speed.
+
+---
+
+
+
+
+
+
+
