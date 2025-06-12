@@ -42,6 +42,13 @@ function App() {
       task.id === id ? { ...task, deleted: true } : task
     ));
   };
+
+  const restoreTask = (id: number) => {
+    setTasks(tasks.map(task =>
+      task.id === id ? { ...task, deleted: false } : task
+    ));
+  };
+  
   
 
   const today = new Date().toLocaleDateString('en-US', {
@@ -126,7 +133,14 @@ function App() {
     {tasks
       .filter(task => task.deleted)
       .map(task => (
-        <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} />
+        <TaskItem
+          key={task.id}
+          task={task}
+          onToggle={toggleTask}
+          onDelete={deleteTask}
+          onRestore={restoreTask}
+          isInTrash={true}
+        />
       ))}
   </div>
 )}
