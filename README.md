@@ -11,12 +11,12 @@ This project is designed as a foundation for a fully functional mobile and deskt
 ### Main Interface
 Shows the main task management view with Active and Completed task sections.
 
-![Main Interface](./screenshots/main-view.png)
+![Main Interface](screenshots/screenshot-1-main.png)
 
 ### Trash View
 Displays deleted tasks, with options to restore or permanently delete.
 
-![Trash View](./screenshots/trash-view.png)
+![Trash View](screenshots/screenshot-2-trash.png)
 
 
 ## Features
