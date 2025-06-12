@@ -4,5 +4,8 @@ export interface Task {
     completed: boolean;
     deleted: boolean;
     createdAt?: string;
+    notes?: string;
+    important?: boolean;
+
   }
   

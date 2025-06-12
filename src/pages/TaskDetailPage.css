@@ -1,0 +1,116 @@
+.task-detail-container {
+    max-width: 1500px;
+  width: 60vw;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 90vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .task-header h2 {
+    font-size: 24px;
+    color: #1f2937;
+  }
+  
+  .created-time {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .action-btn {
+    font-size: 24px;
+    background: #e5e7eb;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .task-note textarea {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .action-btn {
+    margin-right: 10px;
+    padding: 10px 14px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .task-footer-buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .task-footer-buttons .action-btn {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .task-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .title-input {
+    font-size: 1.5rem;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .edit-title-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .created-time {
+    font-size: 0.9rem;
+    color: #777;
+    margin-left: auto;
+  }
+  
+  .task-footer-buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .task-footer-buttons .action-btn {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
