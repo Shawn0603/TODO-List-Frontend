@@ -48,6 +48,11 @@ function App() {
       task.id === id ? { ...task, deleted: false } : task
     ));
   };
+
+  const permanentlyDeleteTask = (id: number) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+  
   
   
 
@@ -137,7 +142,8 @@ function App() {
           key={task.id}
           task={task}
           onToggle={toggleTask}
-          onDelete={deleteTask}
+          onDelete={permanentlyDeleteTask}
+          
           onRestore={restoreTask}
           isInTrash={true}
         />
