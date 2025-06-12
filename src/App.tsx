@@ -118,10 +118,25 @@ function App() {
     <div className="task-column">
       <h2>Active Tasks</h2>
       {tasks
-        .filter(task => !task.completed && !task.deleted)
-        .map(task => (
-          <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} />
-        ))}
+  .filter(task => !task.completed && !task.deleted)
+  .sort((a, b) => {
+    if (a.important === b.important) {
+      return (
+        new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
+      );
+      
+    }
+    return a.important ? -1 : 1;
+  })
+  .map(task => (
+    <TaskItem
+      key={task.id}
+      task={task}
+      onToggle={toggleTask}
+      onDelete={deleteTask}
+    />
+  ))}
+
     </div>
 
     <div className="task-column">

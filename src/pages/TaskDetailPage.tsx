@@ -15,22 +15,44 @@ function TaskDetailPage() {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem('tasks');
-    if (stored) {
-      const parsed: Task[] = JSON.parse(stored);
-      const found = parsed.find(t => t.id.toString() === id);
-      if (found) {
-        setTask(found);
-        setTitle(found.text);
-        setNotes(found.notes || '');
-        setImportant(found.important || false);
+    const updateFromStorage = () => {
+      const stored = localStorage.getItem('tasks');
+      if (stored) {
+        const parsed: Task[] = JSON.parse(stored);
+        const found = parsed.find(t => t.id.toString() === id);
+        if (found) {
+          setTask(found);
+          setTitle(found.text);
+          setNotes(found.notes || '');
+          setImportant(found.important || false);
+        }
       }
-    }
+    };
+  
+    
+    updateFromStorage();
+  
+    
+    window.addEventListener('focus', updateFromStorage);
+    return () => {
+      window.removeEventListener('focus', updateFromStorage);
+    };
   }, [id]);
+  
 
   const toggleImportant = () => {
-    setImportant(prev => !prev);
+    const newImportant = !important;
+    setImportant(newImportant);
+  
+    const stored = localStorage.getItem('tasks');
+    if (!stored) return;
+    const parsed: Task[] = JSON.parse(stored);
+    const updatedTasks = parsed.map(t =>
+      t.id.toString() === id ? { ...t, important: newImportant } : t
+    );
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   };
+  
 
   const handleEditOrSave = () => {
     if (isEditing) {

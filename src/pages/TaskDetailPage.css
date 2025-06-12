@@ -114,3 +114,11 @@
     cursor: pointer;
   }
   
+  
+.action-btn.important {
+    background-color: #facc15; 
+    color: #1f2937;            
+    border: 2px solid #f59e0b; 
+    font-weight: bold;
+  }
+  

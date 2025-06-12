@@ -20,9 +20,16 @@ function TaskItem({ task, onToggle, onDelete, onRestore, isInTrash }: TaskItemPr
   return (
     <li className="task-item">
       <div
-        className="task-indicator"
-        style={{ backgroundColor: task.completed ? '#34D399' : '#3B82F6' }}
-      ></div>
+         className="task-indicator"
+         style={{
+              backgroundColor: task.completed
+            ? '#34D399' // green for completed
+           : task.important
+            ? '#EF4444' // red for important
+            : '#3B82F6' // blue for normal
+          }}
+         ></div>
+
 
       <div className="task-content">
           <span onClick={() => navigate(`/task/${task.id}`)}>
