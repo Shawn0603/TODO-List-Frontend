@@ -12,6 +12,9 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const [viewMode, setViewMode] = useState<'main' | 'trash'>('main');
+
+
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
@@ -35,8 +38,11 @@ function App() {
   };
 
   const deleteTask = (id: number) => {
-    setTasks(tasks.filter(task => task.id !== id));
+    setTasks(tasks.map(task =>
+      task.id === id ? { ...task, deleted: true } : task
+    ));
   };
+  
 
   const today = new Date().toLocaleDateString('en-US', {
     year: 'numeric',
@@ -62,49 +68,70 @@ function App() {
       </div>
 
       <div className="feature-bar">
-         <button className="feature-button">🚩 Priority</button>
-         
-         <button className="feature-button">⭐ Starred</button>
-         
-         <button className="feature-button">⏰ Reminders</button>
-         <button className="feature-button">🗑️ Trash</button>
-      </div>
+  {viewMode === 'main' ? (
+    <>
+      <button className="feature-button">🚩 Priority</button>
+      <button className="feature-button">⭐ Starred</button>
+      <button className="feature-button">⏰ Reminders</button>
+      <button
+        className="feature-button"
+        onClick={() => setViewMode('trash')}
+      >
+        🗑️ Trash
+      </button>
+    </>
+  ) : (
+    <>
+      <button
+        className="feature-button back-button"
+        onClick={() => setViewMode('main')}
+      >
+        🔙 Back
+      </button>
+      <button
+        className="feature-button danger"
+        onClick={() => setTasks(tasks.filter(task => !task.deleted))}
+      >
+        🧹 Clear All
+      </button>
+    </>
+  )}
+</div>
+
 
   
-      
-      <div className="task-columns">
-        <div className="task-column">
-          <h2> Active Tasks</h2>
-          {tasks
-            .filter(task => !task.completed && !task.deleted)
-            .map(task => (
-              <TaskItem
-                key={task.id}
-                task={task}
-                onToggle={toggleTask}
-                onDelete={deleteTask}
-              />
-            ))}
-        </div>
-  
-        <div className="task-column">
-          <h2> Completed Tasks</h2>
-          {tasks
-            .filter(task => task.completed && !task.deleted)
-            .map(task => (
-              <TaskItem
-                key={task.id}
-                task={task}
-                onToggle={toggleTask}
-                onDelete={deleteTask}
-              />
-            ))}
-        </div>
-      </div>
-  
-    </div>  
-  );
-  
+      {viewMode === 'main' ? (
+  <div className="task-columns">
+    <div className="task-column">
+      <h2>Active Tasks</h2>
+      {tasks
+        .filter(task => !task.completed && !task.deleted)
+        .map(task => (
+          <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} />
+        ))}
+    </div>
+
+    <div className="task-column">
+      <h2>Completed Tasks</h2>
+      {tasks
+        .filter(task => task.completed && !task.deleted)
+        .map(task => (
+          <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} />
+        ))}
+    </div>
+  </div>
+) : (
+  <div className="task-column trash-view">
+    <h2>Deleted Tasks</h2>
+    {tasks
+      .filter(task => task.deleted)
+      .map(task => (
+        <TaskItem key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask} />
+      ))}
+  </div>
+)}
+</div>
+);
 }
 
 export default App;

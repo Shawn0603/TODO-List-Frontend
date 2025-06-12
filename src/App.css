@@ -215,3 +215,39 @@ body {
   background: #c0392b;
 }
 
+.back-button {
+  background-color: #facc15; /* yellow-400 */
+  color: #78350f;            /* dark yellow-brown for contrast */
+  font-weight: bold;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #eab308; /* yellow-500 */
+}
+
+
+.feature-button.danger {
+  background-color: #f87171; /* red-400 */
+  color: #7f1d1d;            /* dark red */
+  font-weight: bold;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.feature-button.danger:hover {
+  background-color: #ef4444; /* red-500 */
+}
+
+.trash-view {
+  margin: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
