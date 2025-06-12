@@ -82,7 +82,7 @@ function App() {
       <div className="feature-bar">
   {viewMode === 'main' ? (
     <>
-      <button className="feature-button">🚩 Priority</button>
+      
       <button className="feature-button">⭐ Starred</button>
       <button className="feature-button">⏰ Reminders</button>
       <button
