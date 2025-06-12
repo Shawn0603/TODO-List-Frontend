@@ -24,7 +24,8 @@ function App() {
       id: Date.now(),
       text,
       completed: false,
-      deleted: false
+      deleted: false,
+      createdAt: new Date().toISOString()
     };
     setTasks([newItem, ...tasks]);
   };

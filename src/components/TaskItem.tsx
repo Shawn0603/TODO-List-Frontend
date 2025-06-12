@@ -1,4 +1,6 @@
 import type { Task } from '../types/task';
+import { useNavigate } from 'react-router-dom';
+
 
 interface TaskItemProps {
   task: Task;
@@ -9,6 +11,12 @@ interface TaskItemProps {
 }
 
 function TaskItem({ task, onToggle, onDelete, onRestore, isInTrash }: TaskItemProps) {
+
+  const navigate = useNavigate();
+
+
+
+
   return (
     <li className="task-item">
       <div
@@ -17,9 +25,10 @@ function TaskItem({ task, onToggle, onDelete, onRestore, isInTrash }: TaskItemPr
       ></div>
 
       <div className="task-content">
-        <span onClick={() => alert(`Details:\n${task.text}`)}>
-          {task.text}
-        </span>
+          <span onClick={() => navigate(`/task/${task.id}`)}>
+             {task.text}
+             </span>
+
 
         {isInTrash ? (
           <button
