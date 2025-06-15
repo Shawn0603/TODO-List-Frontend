@@ -71,6 +71,17 @@ http://localhost:5173
 
 ---
 
+## 🚧 To-Do List (Upcoming Features)
+
+We are actively improving this project. Here are some upcoming features and improvements:
+
+- [ ] ⏰ **Task Reminder System**  
+  Allow users to set a reminder time for each task. When the time is up, the app will notify the user via pop-up or browser notification.
+
+- [ ] ⚙️ **State Management Upgrade with Zustand**  
+  Refactor the current state logic to use [Zustand](https://github.com/pmndrs/zustand) for better performance and scalability.
+
+
 
 
 
