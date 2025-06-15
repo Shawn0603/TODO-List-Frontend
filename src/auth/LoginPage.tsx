@@ -16,7 +16,7 @@ function LoginPage() {
     e.preventDefault();
 
     // Simple fake account verification logic (can be connected to the backend in the future)
-    if (username === 'testuser' && password === '123456') {
+    if (username === 'testuser' && password === 'avavaevafvav') {
       login(username);
       navigate('/'); // After successful login, redirected to the main interface.
     } else {
