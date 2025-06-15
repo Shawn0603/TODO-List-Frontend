@@ -87,5 +87,17 @@ We are actively improving this project. Here are some upcoming features and impr
   Display simple charts showing how many tasks the user completed each day. This helps users track productivity and stay motivated.
 
 
+## Project progress June 15
 
+Completed the front-end user authentication module (fake login + fake registration)
+
+Use Zustand to manage login status
+
+Support jumping from the login page to the registration page, and automatically log in after registration
+
+Add AuthGuard to implement route access protection
+
+Pages include LoginPage, RegisterPage, App main page, TaskDetailPage
+
+The foundation has been laid for access to the back-end Spring Boot user system
 
