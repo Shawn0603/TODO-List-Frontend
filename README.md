@@ -81,7 +81,8 @@ We are actively improving this project. Here are some upcoming features and impr
 - [ ] ⚙️ **State Management Upgrade with Zustand**  
   Refactor the current state logic to use [Zustand](https://github.com/pmndrs/zustand) for better performance and scalability.
 
-
+- [ ] 🔐 **User Login & Account System**  
+  Add a login page where users can register and log in to their own accounts, enabling personalized task lists and future cloud syncing features.
 
 
 
