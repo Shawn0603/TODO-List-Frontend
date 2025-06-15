@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from './useAuthStore';
+import { Link } from 'react-router-dom';
 import './LoginPage.css'; 
 
 function LoginPage() {
@@ -44,6 +45,10 @@ function LoginPage() {
         {error && <p className="error-msg">{error}</p>}
         <button type="submit">Login</button>
       </form>
+
+      <p>
+        Don't have an account? <Link to="/register">Register here</Link>
+      </p>
     </div>
   );
 }
