@@ -3,12 +3,14 @@ import { useState } from 'react';
 import AddTask from './components/AddTask';
 import TaskItem from './components/TaskItem';
 import { useTaskStore } from './store/useTaskStore';
+import { useAuthStore } from './auth/useAuthStore';
 
 function App() {
   
   const [viewMode, setViewMode] = useState<'main' | 'trash'>('main');
 
-  
+  const logout = useAuthStore(state => state.logout);
+
   const tasks = useTaskStore(state => state.tasks);
   const addTask = useTaskStore(state => state.addTask);
   const toggleTask = useTaskStore(state => state.toggleTask);
@@ -30,7 +32,10 @@ function App() {
         <div className="header">
           <h1>To-Do List</h1>
           <span className="date">{today}</span>
+          <button className="logout-btn" onClick={logout}>Logout</button>
         </div>
+
+        
 
         <AddTask onAddTask={addTask} />
       </div>
