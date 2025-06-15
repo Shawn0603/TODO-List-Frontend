@@ -4,7 +4,6 @@
 
 This project is designed as a foundation for a fully functional mobile and desktop app, with the long-term goal of publishing it to the **App Store**. It demonstrates a solid understanding of component-based architecture, local data persistence, and interactive UI development in modern front-end technologies.
 
----
 
 ## Screenshots
 
@@ -84,7 +83,8 @@ We are actively improving this project. Here are some upcoming features and impr
 - [ ] 🔐 **User Login & Account System**  
   Add a login page where users can register and log in to their own accounts, enabling personalized task lists and future cloud syncing features.
 
-
+- [ ] 📊 **Daily Task Completion Visualization**  
+  Display simple charts showing how many tasks the user completed each day. This helps users track productivity and stay motivated.
 
 
 
