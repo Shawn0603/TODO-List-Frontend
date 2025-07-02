@@ -18,6 +18,7 @@ Displays deleted tasks, with options to restore or permanently delete.
 ![Trash View](screenshots/screenshot-2-trash.png)
 
 
+
 ## Features
 
 - Add and manage your personal tasks efficiently.
