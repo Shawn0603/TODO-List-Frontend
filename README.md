@@ -78,9 +78,6 @@ We are actively improving this project. Here are some upcoming features and impr
 - [ ] ⏰ **Task Reminder System**  
   Allow users to set a reminder time for each task. When the time is up, the app will notify the user via pop-up or browser notification.
 
-- [ ] 🔐 **User Login & Account System**  
-  Add a login page where users can register and log in to their own accounts, enabling personalized task lists and future cloud syncing features.
-
 - [ ] 📊 **Daily Task Completion Visualization**  
   Display simple charts showing how many tasks the user completed each day. This helps users track productivity and stay motivated.
 
