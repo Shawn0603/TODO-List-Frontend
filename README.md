@@ -4,8 +4,6 @@
 
 This project is designed as a foundation for a fully functional mobile and desktop app, with the long-term goal of publishing it to the **App Store**. It demonstrates a solid understanding of component-based architecture, local data persistence, and interactive UI development in modern front-end technologies.
 
-
-
 ## Screenshots
 
 ### Main Interface
