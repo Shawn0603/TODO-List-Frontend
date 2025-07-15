@@ -7,6 +7,7 @@ This project is designed as a foundation for a fully functional mobile and deskt
 
 ## Screenshots
 
+
 ### Main Interface
 Shows the main task management view with Active and Completed task sections.
 
